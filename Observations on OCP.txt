@@ -1,0 +1,45 @@
+ocp-diag-quickstart :
+
+This repository contains sample codebases that produce OCP Test & Validation output. They are intended to be used as a base to write new compliant diagnostics.
+
+- explored whether we can implement something or not.
+
+Left because we didn't found any implementation ideas on this.
+
+-----------------------------
+
+ocp-diag-python : 
+
+The OCP Test & Validation Initiative is a collaboration between datacenter hyperscalers having the goal of standardizing aspects of the hardware validation/diagnosis space, along with providing necessary tooling to enable both diagnostic developers and executors to leverage these interfaces.
+
+Specifically, the ocp-diag-python project makes it easy for developers to use the OCP Test & Validation specification artifacts by presenting a pure-python api that can be used to output spec compliant JSON messages.
+
+- explored whether we can implement something or not.
+
+Left because we didn't found any implementation ideas on this.
+
+------------------------------
+
+opencomputeproject:
+
+Explored other repositories in this project whether we have any related technologies in our space.
+
+Left it because , Didn't found any
+
+-------------------------------
+
+Use Cases of Open Network Linux (ONL):
+Bare-Metal Switch Management:
+
+ONL is designed for managing and running network operating systems on bare-metal switches. It is useful in data centers where hardware from multiple vendors is used.
+Network Automation and Customization:
+
+ONL allows for automating network configurations, making it suitable for large-scale deployments and custom networking setups.
+Open Compute Project (OCP) Hardware:
+
+If your hardware is based on OCP, ONL can provide an optimized operating system for managing networking equipment.
+
+- Left it because , we didn't have any OCP hardware. 
+- Software related things we didn't found any other info to move further on this.
+
+--------------------------------
