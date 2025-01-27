@@ -23,7 +23,7 @@ jobs:
     - name: Build Docker Image
       run: '#!/bin/bash
 
-        docker build -t mydockerhubusername/firstproject:latest .'
+        docker build -t bhargavmanepalli/my-custom-image .'
     - name: Log in to Docker Hub
       uses: docker/login-action@v2
       with:
@@ -32,4 +32,4 @@ jobs:
     - name: Push Docker Image
       run: '#!/bin/bash
 
-        docker push mydockerhubusername/firstproject:latest'
+        docker push bhargavmanepalli/my-custom-image'
