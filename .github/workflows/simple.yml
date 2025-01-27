@@ -1,0 +1,51 @@
+name: CI/CD Pipeline
+'on':
+  push:
+    branches:
+    - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        repository: DaggupatiPavan/java-web-app-docker
+    - name: Build
+      run: '#!/bin/bash
+
+        mvn clean install
+
+        echo maven completed'
+    
+    - name: Test
+      run: '#!/bin/bash
+
+        mvn test'
+    - name: Write Dockerfile
+      run: '#!/bin/bash
+
+        echo "FROM openjdk:8-jre" >> Dockerfile
+
+        echo "EXPOSE 8080" >> Dockerfile
+
+        echo "COPY target/*.jar /usr/src/myapp.jar" >> Dockerfile'
+    - name: Docker Build
+      run: '#!/bin/bash
+
+        docker build -t bhargavmanepalli/my-custom-image:simple .'
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+    - name: Push to DockerHub
+      run: '#!/bin/bash
+
+        docker push bhargavmanepalli/my-custom-image:simple'
+    - name: Deploy as Pod
+      run: '#!/bin/bash
+
+        kubectl delete pod simple-pod || true
+
+        kubectl run simple-pod --image=bhargavmanepalli/my-custom-image:simple'
