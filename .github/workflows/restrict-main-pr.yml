@@ -1,0 +1,17 @@
+name: restrict-main-pr
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate-author:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          ALLOWED_USERS="saivinodmallipudi"
+          if [[ ! " $ALLOWED_USERS " =~ " ${{ github.actor }} " ]]; then
+            echo "PRs to main are restricted to Techcomm/Admin only"
+            exit 1
+          fi
